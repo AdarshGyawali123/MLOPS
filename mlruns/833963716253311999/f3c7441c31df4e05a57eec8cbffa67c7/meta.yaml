@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/adarshgyawali/Desktop/MLOps/MLOPS/MLOPS/mlruns/833963716253311999/f3c7441c31df4e05a57eec8cbffa67c7/artifacts
+end_time: 1763923884686
+entry_point_name: ''
+experiment_id: '833963716253311999'
+lifecycle_stage: active
+run_id: f3c7441c31df4e05a57eec8cbffa67c7
+run_name: build_features
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763923884168
+status: 3
+tags: []
+user_id: adarshgyawali

@@ -1,0 +1,1 @@
+['Age_Oldest_TL', 'Age_Newest_TL', 'time_since_recent_payment', 'max_deliq_6mts', 'max_deliq_12mts', 'tot_enq', 'CC_enq', 'CC_enq_L6m', 'CC_enq_L12m', 'PL_enq', 'PL_enq_L6m', 'PL_enq_L12m', 'time_since_recent_enq', 'enq_L12m', 'enq_L6m', 'enq_L3m', 'pct_currentBal_all_TL', 'max_unsec_exposure_inPct']

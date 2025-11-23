@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Risk Batch Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: #f3f4f6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            max-width: 600px;
+            width: 100%;
+            padding: 24px 28px;
+            border-radius: 14px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+            color: #111827;
+            text-align: center;
+        }
+
+        p.subtitle {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 0.8rem;
+            color: #1d4ed8;
+            margin-bottom: 18px;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        form {
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        label {
+            font-size: 0.9rem;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        input[type="file"] {
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px dashed #9ca3af;
+            background: #f9fafb;
+            cursor: pointer;
+        }
+
+        .helper {
+            font-size: 0.78rem;
+            color: #9ca3af;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            border-radius: 999px;
+            padding: 9px 18px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.15s ease, transform 0.05s ease;
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-secondary {
+            background-color: #e5e7eb;
+            color: #374151;
+        }
+
+        .btn-secondary:hover {
+            background-color: #d1d5db;
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        .error {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #b91c1c;
+        }
+
+        .sample-link {
+            margin-top: 6px;
+            font-size: 0.8rem;
+        }
+
+        .sample-link a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .sample-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Credit Risk Batch Prediction</h1>
+    <p class="subtitle">Upload an Excel file with multiple customers to get approval predictions.</p>
+
+    <div class="info-box">
+        <strong>Expected file format</strong>
+        Your Excel file must have the same columns as the training dataset
+        (e.g. PROSPECTID, Total_TL, Tot_Active_TL, …, first_prod_enq2_others).
+    </div>
+
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="file">Upload Excel file (.xlsx)</label>
+            <input type="file" id="file" name="file" accept=".xlsx" required>
+            <div class="helper">
+                The file can contain many rows; the model will generate predictions for each row.
+            </div>
+            <div class="sample-link">
+                You can start with a sample file and edit it:<br>
+                <strong>dummy_credit_dataset.xlsx</strong> (place this file in your project, or download the sample you created).
+            </div>
+        </div>
+
+        <div class="actions">
+            <button type="reset" class="btn-secondary">Clear</button>
+            <button type="submit" class="btn-primary">Upload & Predict</button>
+        </div>
+    </form>
+
+    {% if error %}
+    <div class="error">
+        {{ error }}
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>

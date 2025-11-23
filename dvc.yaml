@@ -1,0 +1,16 @@
+stages:
+  make_dataset:
+    cmd: python src/data/make_dataset.py
+    deps:
+    - data/raw/case_study1.xlsx
+    - data/raw/case_study2.xlsx
+    - src/data/make_dataset.py
+    outs:
+    - data/interim/merged.csv
+  build_features:
+    cmd: python src/features/build_features.py
+    deps:
+    - data/interim/merged.csv
+    - src/features/build_features.py
+    outs:
+    - data/interim/features.csv
