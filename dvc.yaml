@@ -1,0 +1,19 @@
+stages:
+  merge:
+    cmd: python src/data/make_dataset.py
+    outs:
+      - data/interim/merged.csv
+
+  preprocess:
+    cmd: python src/data/preprocessing.py
+    deps:
+      - data/interim/merged.csv
+    outs:
+      - data/processed/preprocessing.csv
+
+  features:
+    cmd: python src/features/build_features.py
+    deps:
+      - data/processed/preprocessing.csv
+    outs:
+      - data/interim/features.csv

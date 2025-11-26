@@ -1,0 +1,33 @@
+schema: '2.0'
+stages:
+  merge:
+    cmd: python src/data/make_dataset.py
+    outs:
+    - path: data/interim/merged.csv
+      hash: md5
+      md5: 2d551c1947ae70dca600c6f56fcf9094
+      size: 14079050
+  preprocess:
+    cmd: python src/data/preprocessing.py
+    deps:
+    - path: data/interim/merged.csv
+      hash: md5
+      md5: 2d551c1947ae70dca600c6f56fcf9094
+      size: 14079050
+    outs:
+    - path: data/processed/preprocessing.csv
+      hash: md5
+      md5: 7dc4aec665dad6f7d29556427b3aa425
+      size: 10934093
+  features:
+    cmd: python src/features/build_features.py
+    deps:
+    - path: data/processed/preprocessing.csv
+      hash: md5
+      md5: 7dc4aec665dad6f7d29556427b3aa425
+      size: 10934093
+    outs:
+    - path: data/interim/features.csv
+      hash: md5
+      md5: 5244e5e48a1ebd49690667beac11422a
+      size: 9956756
