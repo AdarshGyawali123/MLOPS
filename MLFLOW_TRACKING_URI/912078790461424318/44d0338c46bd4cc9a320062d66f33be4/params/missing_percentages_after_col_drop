@@ -1,0 +1,12 @@
+PROSPECTID             0.0
+Total_TL               0.0
+Tot_Closed_TL          0.0
+Tot_Active_TL          0.0
+Total_TL_opened_L6M    0.0
+                      ... 
+GL_Flag                0.0
+last_prod_enq2         0.0
+first_prod_enq2        0.0
+Credit_Score           0.0
+Approved_Flag          0.0
+Length: 79, dtype: float64

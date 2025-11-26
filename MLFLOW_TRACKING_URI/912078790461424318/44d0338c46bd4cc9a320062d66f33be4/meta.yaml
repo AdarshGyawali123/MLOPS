@@ -1,0 +1,14 @@
+artifact_uri: /Users/adarshgyawali/Desktop/MLOps/MLOPS/MLOPS/MLFLOW_TRACKING_URI/912078790461424318/44d0338c46bd4cc9a320062d66f33be4/artifacts
+end_time: 1764114449813
+entry_point_name: ''
+experiment_id: '912078790461424318'
+lifecycle_stage: active
+run_id: 44d0338c46bd4cc9a320062d66f33be4
+run_name: build_features
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764114449090
+status: 3
+tags: []
+user_id: gyawaliadarsh
